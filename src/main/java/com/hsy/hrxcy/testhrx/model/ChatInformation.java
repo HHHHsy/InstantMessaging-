@@ -13,23 +13,18 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"phone"})
-})
 @EntityListeners(AuditingEntityListener.class)
-//用户表
-public class Account {
+//聊天信息表
+public class ChatInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 100)
-    private String phone;
-    private String name;
-    private String password;
-    private String bio;
-    private String avatar;
+    private Long informationid;
+    private Long fromidaid;
+    private Long toid;
+    private String content;
     @CreatedDate
-    private LocalDateTime birthday;
-    private Long gender;
+    private LocalDateTime date;
 
 }
+
